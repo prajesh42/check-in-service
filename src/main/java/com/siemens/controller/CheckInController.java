@@ -1,6 +1,7 @@
 package com.siemens.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,8 @@ public class CheckInController {
 	
 	@GetMapping
 	public ResponseEntity<?> checkInAndOut(String employeeId) {
-	   return ResponseEntity.ok(checkInService.checkInAndOut(employeeId));
+		checkInService.checkInAndOut(employeeId);
+		return ResponseEntity.accepted().body(HttpStatus.ACCEPTED);
 	}
 
 }

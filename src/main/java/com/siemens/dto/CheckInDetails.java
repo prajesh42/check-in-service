@@ -1,13 +1,12 @@
 package com.siemens.dto;
 
-import java.util.Date;
+import java.time.OffsetDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -18,10 +17,13 @@ public class CheckInDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
-	public Date checkInTime;
-	public Date checkOutTime;
-	@ManyToOne
-	@JoinColumn(name = "employeeId")
-	public Employee employee;
+	private Long id;
+	@Column(nullable = false)
+	private OffsetDateTime checkInTime;
+	private OffsetDateTime checkOutTime;
+	@Column(nullable = false)
+	private CheckInStatus status;
+	private Double hours;
+	@Column(nullable = false)
+	private String employeeId;
 }
