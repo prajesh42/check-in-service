@@ -26,4 +26,6 @@ public class CheckInDetails {
 	private Double hours;
 	@Column(nullable = false)
 	private String employeeId;
+	@Column(nullable = false)
+	private String traceId;
 }

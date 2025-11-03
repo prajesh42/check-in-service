@@ -11,6 +11,12 @@ public class EmailService {
 	@Autowired
 	private JavaMailSender mailSender;
 	
+	
+	/**
+	 * @param toEmail
+	 * @param hours
+	 * This method sends email to the employee with a notification of worked hour.
+	 */
 	public void sendTrackedHours(String toEmail, Double hours) {
 		SimpleMailMessage emailMessage = new SimpleMailMessage();
         emailMessage.setTo(toEmail);
