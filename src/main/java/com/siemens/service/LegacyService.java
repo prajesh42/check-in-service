@@ -57,7 +57,7 @@ public class LegacyService {
         );
 
         if (!response.getStatusCode().is2xxSuccessful()) {
-        	log.info("Failed to record data in legacy system. Status:", response.getStatusCode());
+        	log.info("Failed to record data in legacy system. Status : " + response.getStatusCode());
         }
 	}
 	

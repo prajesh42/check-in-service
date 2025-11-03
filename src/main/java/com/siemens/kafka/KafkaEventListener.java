@@ -34,6 +34,7 @@ public class KafkaEventListener {
 				legacyService.recordEmployeeData(checkInEvent.getEmployeeId(), checkInEvent.getHours());
 			}
 		} catch (Exception e) {
+			log.error("checkedin-event-error ::" + message);
 			log.error("Error while processing checkin event", e);
 		}
 		
